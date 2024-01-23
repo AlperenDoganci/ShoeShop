@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shoe Details</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/static/style.css}">
+    <link rel="icon" type="image/png" href="/static/images/icon.png" th:href="@{/static/images/icon.png}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body class="container-fluid index">
+
+<nav id="navbar" class="navbar navbar-expand-lg bg-transparent">
+    <div class="navbar-brand"  id="logo-container">
+        <a th:href="@{/index}">
+            <img id="logo" th:src="@{/static/images/icon.png}" alt="logo"/>
+        </a>
+    </div>
+    <ul class="nav-list">
+        <li><a href="/index" th:href="@{/index}">Home</a></li>
+        <li><a href="/shoes" th:href="@{/shoes}">Shoes</a></li>
+        <li><a href="/customers" th:href="@{/customers}">Customers</a></li>
+        <li><a href="/add-customer" th:href="@{/addCustomer}">Add Customer</a></li>
+        <li><a href="/add-shoe" th:href="@{/addShoe}">Add Shoe</a></li>
+    </ul>
+</nav>
+
+<h1>Shoe Details</h1>
+
+<div class="d-flex justify-content-center align-items-center">
+    <div class="shoe-detail w-50">
+        <table class="table table-striped table-striped-columns table-responsive table-bordered table-dark">
+            <tr>
+                <td><strong class="label">Shoe ID:</strong></td>
+                <td><span th:text="${shoe.shoeId}"></span></td>
+            </tr>
+            <tr>
+                <td><strong class="label">Brand:</strong></td>
+                <td><span th:text="${shoe.brand}"></span></td>
+            </tr>
+            <tr>
+                <td><strong class="label">Size:</strong></td>
+                <td><span th:text="${shoe.size}"></span></td>
+            </tr>
+            <tr>
+                <td><strong class="label">Color:</strong></td>
+                <td><span th:text="${shoe.color}"></span></td>
+            </tr>
+            <tr>
+                <td><strong class="label">Price:</strong></td>
+                <td><span th:text="${shoe.price}"></span></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <strong class="label">Purchase:</strong>
+                    <table class="table table-striped table-striped-columns table-responsive table-bordered table-dark">
+                        <thead>
+                        <tr>
+                            <th>Purchase Id</th>
+                            <th>Date</th>
+                            <th>Price</th>
+                            <th>Payment Method</th>
+                            <th>Customer ID</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr th:each="purchase : ${purchases}">
+                            <td th:text="${purchase.purchaseId}">PurchaseId</td>
+                            <td th:text="${purchase.purchaseDate}">Date</td>
+                            <td th:text="'$' + ${purchase.totalPrice}">Price</td>
+                            <td th:text="${purchase.paymentMethod}">PurchaseId</td>
+                            <td th:text="${purchase.customer.customerId}">PurchaseId</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+    </table>
+</div>
+</div>
+
+<footer class="footer-index" th:insert="~{footer::copy}"> ShoeShop &#169; 2023 All rights reserved</footer>
+</body>
+</html>

@@ -1,0 +1,47 @@
+[
+  {
+    "customerId": 1,
+    "firstName": "Michael",
+    "lastName": "Scott",
+    "email": "michaelscott@gmail.com",
+    "phoneNumber": "123456789",
+    "dateOfBirth": "01-10-1972",
+    "gender": "M"
+  },
+  {
+    "customerId": 2,
+    "firstName": "Jim",
+    "lastName": "Halpert",
+    "email": "jimhalpert@gmail.com",
+    "phoneNumber": "545632189",
+    "dateOfBirth": "02-09-1982",
+    "gender": "M"
+  },
+  {
+    "customerId": 3,
+    "firstName": "Dwight",
+    "lastName": "Baker",
+    "email": "dwightbaker@gmail.com",
+    "phoneNumber": "456789123",
+    "dateOfBirth": "24-12-1976",
+    "gender": "M"
+  },
+  {
+    "customerId": 4,
+    "firstName": "Angela",
+    "lastName": "Johnson",
+    "email": "angelajohnson@gmail.com",
+    "phoneNumber": "756984156",
+    "dateOfBirth": "06-08-1974",
+    "gender": "F"
+  },
+  {
+    "customerId": 5,
+    "firstName": "Pam",
+    "lastName": "Beesly",
+    "email": "pambeesly@outlook.org",
+    "phoneNumber": "493567865",
+    "dateOfBirth": "12-06-1984",
+    "gender": "F"
+  }
+]

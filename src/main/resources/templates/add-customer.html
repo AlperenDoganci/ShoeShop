@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Customer</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/static/style.css}">
+    <link rel="icon" type="image/png" href="/static/images/icon.png" th:href="@{/static/images/icon.png}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</head>
+
+<body class="container-fluid index">
+
+<nav id="navbar" class="navbar navbar-expand-lg bg-transparent">
+    <div class="navbar-brand"  id="logo-container">
+        <a th:href="@{/index}">
+            <img id="logo" th:src="@{/static/images/icon.png}" alt="logo"/>
+        </a>
+    </div>
+    <ul class="nav-list">
+        <li><a href="/index" th:href="@{/index}">Home</a></li>
+        <li><a href="/shoes" th:href="@{/shoes}">Shoes</a></li>
+        <li><a href="/customers" th:href="@{/customers}">Customers</a></li>
+        <li><a href="/add-customer" th:href="@{/addCustomer}">Add Customer</a></li>
+        <li><a href="/add-shoe" th:href="@{/addShoe}">Add Shoe</a></li>
+    </ul>
+</nav>
+
+<h1>Add Customer</h1>
+
+
+<div class="d-flex justify-content-center">
+
+    <form method="post" class="col-form-label col-xl-4 col-sm-5 col-xs-3" th:object="${customerViewModel}" th:action="@{/addCustomer}">
+
+        <div th:if="${#fields.hasAnyErrors()}" class="alert alert-danger custom-error-container">
+            <p>The form contained errors!</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div >
+            <label th:utext="#{addName}" for="firstName" class="form-label custom-label">Name</label>
+            <input id="firstName" th:field="*{firstName}" type="text" class="form-control" >
+            <div th:if="${#fields.hasErrors('firstName')}" class="alert alert-danger custom-error-container">
+                <p th:errors="*{firstName}" class="custom-error-message">The name has errors!</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div >
+            <label th:utext="#{addLastname}" for="lastName" class="form-label custom-label">Lastname</label>
+            <input id="lastName" th:field="*{lastName}" type="text" class="form-control" >
+            <div th:if="${#fields.hasErrors('lastName')}" class="alert alert-danger custom-error-container">
+                <p th:errors="*{lastName}" class="custom-error-message">The name has errors!</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div >
+            <label th:utext="#{addEmail}" for="email" class="form-label custom-label">Email</label>
+            <input id="email" th:field="*{email}" type="text" class="form-control">
+        </div>
+
+        <div >
+            <label th:utext="#{addPhone}" for="phoneNumber" class="form-label custom-label">Phone</label>
+            <input id="phoneNumber" th:field="*{phoneNumber}" type="number" class="form-control" >
+        </div>
+
+        <div>
+            <label th:utext="#{addBirthdate}" for="dateOfBirth" class="form-label custom-label">Birthdate</label>
+            <input id="dateOfBirth" th:field="*{dateOfBirth}" type="date" class="form-control" >
+            <div th:if="${#fields.hasErrors('dateOfBirth')}" class="alert alert-danger custom-error-container">
+                <p th:errors="*{dateOfBirth}" class="custom-error-message">The dateOfBirth has errors!</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div >
+            <label th:utext="#{addGender}" for="sex" class="form-label custom-label">Gender </label>
+            <select id="sex" th:field="*{gender}" class="form-control gender-dropdown form-select-sm narrowField">
+                <option th:each="gender : ${T(be.kdg.prog3.domain.Gender).values()}" th:value="${gender}" th:text="${gender}"></option>
+            </select>
+
+            <div th:if="${#fields.hasErrors('gender')}" class="alert alert-danger custom-error-container">
+                <p th:errors="*{gender}" class="custom-error-message">The gender should not be null!</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+            </div>
+        </div>
+
+        <div >
+            <input class="btn btn-primary mt-2" type="submit" value="Submit Customer" >
+        </div>
+
+    </form>
+</div>
+
+<footer class="footer-index" th:insert="~{footer::copy}"> ShoeShop &#169; 2023 All rights reserved</footer>
+</body>
+</html>

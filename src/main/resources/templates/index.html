@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"  name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/static/style.css}">
+    <link rel="icon" type="image/png" href="/static/images/icon.png" th:href="@{/static/images/icon.png}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <title>ShoeShop</title>
+</head>
+
+<body class="container-fluid index">
+
+<nav id="navbar" class="navbar navbar-expand-lg bg-transparent">
+    <div class="navbar-brand"  id="logo-container">
+        <a th:href="@{/index}">
+            <img id="logo" th:src="@{/static/images/icon.png}" th:alt-title="#{index.logo}"/>
+        </a>
+    </div>
+    <ul class="nav-list">
+        <li><a href="/index" th:href="@{/index}">Home</a></li>
+        <li><a href="/shoes" th:href="@{/shoes}">Shoes</a></li>
+        <li><a href="/customers" th:href="@{/customers}">Customers</a></li>
+        <li><a href="/add-customer" th:href="@{/addCustomer}">Add Customer</a></li>
+        <li><a href="/add-shoe" th:href="@{/addShoe}">Add Shoe</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h1 th:utext="#{index.title}">ShoeShop</h1>
+    <p th:utext="#{index.slogan}">BUY SHOES</p>
+
+</main>
+
+
+<footer class="footer-index" th:insert="~{footer::copy}"> ShoeShop &#169; 2023 All rights reserved</footer>
+
+</body>
+</html>

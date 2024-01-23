@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Shoe</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/static/style.css}">
+    <link rel="icon" type="image/png" href="/static/images/icon.png" th:href="@{/static/images/icon.png}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</head>
+
+<body class="container-fluid index">
+
+<nav id="navbar" class="navbar navbar-expand-lg bg-transparent">
+    <div class="navbar-brand"  id="logo-container">
+        <a th:href="@{/index}">
+            <img id="logo" th:src="@{/static/images/icon.png}" alt="logo"/>
+        </a>
+    </div>
+    <ul class="nav-list">
+        <li><a href="/index" th:href="@{/index}">Home</a></li>
+        <li><a href="/shoes" th:href="@{/shoes}">Shoes</a></li>
+        <li><a href="/customers" th:href="@{/customers}">Customers</a></li>
+        <li><a href="/add-customer" th:href="@{/addCustomer}">Add Customer</a></li>
+        <li><a href="/add-shoe" th:href="@{/addShoe}">Add Shoe</a></li>
+    </ul>
+</nav>
+
+<h1>Add Shoe</h1>
+<div class="d-flex justify-content-center">
+
+    <form method="post" class="col-form-label col-xl-4 col-sm-5 col-xs-3" th:object="${shoeViewModel}"
+          th:action="@{/addShoe}">
+
+        <div th:if="${#fields.hasAnyErrors()}" class="alert alert-danger custom-error-container">
+            <p>The form contained errors!</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div>
+            <label th:utext="#{addBrand}" for="brand" class="form-label custom-label">Brand</label>
+            <input id="brand" th:field="*{brand}" type="text" class="form-control">
+            <div th:if="${#fields.hasErrors('brand')}" class="alert alert-danger custom-error-container">
+                <p th:errors="*{brand}" class="custom-error-message">The brand has errors!</p>
+            </div>
+        </div>
+
+        <div>
+            <label th:utext="#{addSize}" for="size" class="form-label custom-label">Size</label>
+            <input id="size" th:field="*{size}" type="number" class="form-control">
+        </div>
+
+        <div>
+            <label th:utext="#{addColor}" for="color" class="form-label custom-label">Color</label>
+            <input id="color" th:field="*{color}" type="text" class="form-control">
+        </div>
+
+        <div>
+            <label th:utext="#{addPrice}" for="price" class="form-label custom-label">Price</label>
+            <input id="price" th:field="*{price}" type="number" class="form-control">
+            <div th:if="${#fields.hasErrors('price')}" class="alert alert-danger custom-error-container">
+                <p th:errors="*{price}" class="custom-error-message">The price has errors!</p>
+            </div>
+        </div>
+
+        <input class="btn btn-primary mt-2" type="submit" value="Submit Shoe">
+
+    </form>
+</div>
+
+
+<footer class="footer-index" th:insert="~{footer::copy}"> ShoeShop &#169; 2023 All rights reserved</footer>
+
+</body>
+</html>

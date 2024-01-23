@@ -1,0 +1,105 @@
+html {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.index {
+    background-image: url("/static/images/shoeBackground.png");
+    background-size: 100%;
+
+    background-repeat: no-repeat;
+    background-position: center;
+}
+body h1 {
+    color: #ff6337;
+}
+main h1 {
+    font-size: 7em;
+    color: #ff6337;
+}
+main p {
+    font-size: 5em;
+    color: #ff6337;
+
+}
+
+p {
+    font-size: 140%;
+    font-weight: 250;
+    color: #ff6337;
+    margin: 0 1.3rem;
+}
+
+#navbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+
+}
+
+.nav-list li {
+    margin-right: 100px;
+}
+
+.nav-list li a {
+    color: #ff6337;
+}
+
+#logo-container {
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    width: auto;
+    height: 3vw;
+}
+
+/* Footer */
+footer {
+    color: #ff6337;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 95%;
+}
+
+footer p {
+    font-size: 11px;
+    margin: 0;
+}
+.footer-index {
+    margin-top: auto;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/*form*/
+.custom-label {
+    color: #ff6337;
+    font-weight: bold
+}
+
+.narrowField {
+    width: 10% !important;
+    margin: 0 auto;
+}
+.custom-error-message {
+    color: black;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.alert.alert-danger.custom-error-container {
+    padding: 3px;
+    margin-bottom: 3px;
+}

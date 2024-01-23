@@ -1,0 +1,37 @@
+[
+  {
+    "shoeId": 1,
+    "brand": "Nike",
+    "size": 42.0,
+    "color": "Black",
+    "price": 120.0
+  },
+  {
+    "shoeId": 2,
+    "brand": "Adidas",
+    "size": 43.0,
+    "color": "White",
+    "price": 100.0
+  },
+  {
+    "shoeId": 3,
+    "brand": "Puma",
+    "size": 42.0,
+    "color": "Red",
+    "price": 90.0
+  },
+  {
+    "shoeId": 4,
+    "brand": "Nike",
+    "size": 36.0,
+    "color": "Orange",
+    "price": 100.0
+  },
+  {
+    "shoeId": 5,
+    "brand": "Cat",
+    "size": 42.0,
+    "color": "Brown",
+    "price": 200.0
+  }
+]

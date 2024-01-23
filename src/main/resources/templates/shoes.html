@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shoes</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/static/style.css}">
+    <link rel="icon" type="image/png" href="/static/images/icon.png" th:href="@{/static/images/icon.png}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}">
+    </script>
+</head>
+
+<body class="container-fluid index">
+
+<nav id="navbar" class="navbar navbar-expand-lg bg-transparent">
+    <div class="navbar-brand"  id="logo-container">
+        <a th:href="@{/index}">
+            <img id="logo" th:src="@{/static/images/icon.png}" alt="logo"/>
+        </a>
+    </div>
+    <ul class="nav-list">
+        <li><a href="/index" th:href="@{/index}">Home</a></li>
+        <li><a href="/shoes" th:href="@{/shoes}">Shoes</a></li>
+        <li><a href="/customers" th:href="@{/customers}">Customers</a></li>
+        <li><a href="/add-customer" th:href="@{/addCustomer}">Add Customer</a></li>
+        <li><a href="/add-shoe" th:href="@{/addShoe}">Add Shoe</a></li>
+    </ul>
+</nav>
+
+<h1>Shoes</h1>
+
+
+<table class="table table-striped table-responsive table-bordered table-dark" >
+    <tr>
+        <th th:utext="#{brand}">Brand</th>
+        <th th:utext="#{size}">Size:</th>
+        <th th:utext="#{color}">Color</th>
+        <th th:utext="#{price}">Price</th>
+        <th th:utext="#{details}">Details</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="shoe:${shoes}">
+        <td th:text="${shoe.brand}"></td>
+        <td class="table-light" th:text="${shoe.size}"></td>
+        <td th:text="${shoe.color}"></td>
+        <td class="table-light" th:text="${shoe.price}"></td>
+
+        <td><a th:href="@{/shoes/shoedetails(shoeId=${shoe.shoeId})}">DETAILS</a></td>
+        <td >
+            <form th:action="@{/deleteShoe}" method="get">
+                <input type="hidden" name="shoeId" th:value="${shoe.shoeId}" />
+                <button type="submit" class="btn btn-danger">DELETE</button>
+            </form>
+    </tr>
+</table>
+
+<footer class="footer-index" th:insert="~{footer::copy}"> ShoeShop &#169; 2023 All rights reserved</footer>
+
+</body>
+</html>

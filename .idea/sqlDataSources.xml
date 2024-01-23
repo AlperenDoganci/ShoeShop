@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="e1354319-d54f-477b-bb50-0169ddb2b0ff" name="shoeshopdb Mapping">
+      <data-sources db="b852d041-ed3a-493d-be96-023de8640d97" />
+      <scope>
+        <node kind="database" negative="1">
+          <node kind="schema" negative="1" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+</project>
