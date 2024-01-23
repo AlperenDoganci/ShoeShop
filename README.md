@@ -1,4 +1,4 @@
-# Programming 3 JAVA-SPRING PROJECT
+# JAVA-SPRING PROJECT
 ## ShoeShop
 ## Author: [Alperen Doganci]
 
